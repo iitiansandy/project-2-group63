@@ -1,5 +1,6 @@
 // const jwt = require("jsonwebtoken")
 const internModel = require("../models/internModel")
+const collegeModel = require("../models/collegeModel")
 
 // .................................................................Authentication........................................................................
 
@@ -11,15 +12,13 @@ const mid1 = async function(req, res, next){
   let internMobile = req.body.mobile;
   if(internMobile.trim().length == 0) return res.status(404).send({status: false, msg: 'Intern mobile input is required'})
 
-  let internCollege = req.body.collegeId;
-  if(internName.trim().length == 0) return res.status(404).send({status: false, msg: 'Intern name input is required'})
+  let internEmail = req.body.email;
+  if(internEmail.trim().length == 0) return res.status(404).send({status: false, msg: 'Intern  input is required'})
 
     if (!intern.name) return res.status(400).send({ msg: "name is required" })
     // if (!intern.email) return res.status(400).send({ msg: "email is required" })
     if (!intern.mobile) return res.status(400).send({ msg: "mobile is required" })
-    if (!intern.collegeId) return res.status(404).send({ msg: " college id is required" })
-    
-
+    // if (!intern.collegeId) return res.status(404).send({ msg: collegeId })
     next();
 }
 
@@ -43,6 +42,19 @@ const mid2 = async function(req, res, next){
     next();
 }
 
+const mid3 = async function (req, res, next){
+  const collegeName = req.query.name
+      if (!collegeName || collegeName.trim() == "") {
+          return res.status(400).send({ status: false, msg: "College name is missing" })
+      }
+  const collegeData = await collegeModel.findOne({ name: collegeName, isDeleted: false })
 
-module.exports = { mid1, mid2 }
+      if (!collegeData) {
+          return res.status(404).send({ status: false, msg: `College name '${collegeName}' doesn't exist!` })
+      }
+next()
+}
+
+
+module.exports = { mid1, mid2, mid3 }
 // 

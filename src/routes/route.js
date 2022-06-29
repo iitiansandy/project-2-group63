@@ -10,7 +10,7 @@ router.post("/functionup/colleges", validation.mid2, collegeController.createCol
 
 router.post("/functionup/interns", validation.mid1, internController.createInterns);
 
-// router.post("/login", authorController.loginUser)
+router.get("/functionup/collegeDetails", internController.getCollegeDetails)
 
 // router.get("/blogs", mid1, blogController.getBlog)
 
