@@ -1,7 +1,7 @@
 const collegeModel = require("../models/collegeModel")
 
 
-//.....................................................................create Author...............................................
+//.....................................................................create College...............................................
 
 const createCollege = async function (req, res) {
 
@@ -17,4 +17,4 @@ try{
 
 };
 
-module.exports.createCollege = createCollege
+module.exports.createCollege = createCollege;

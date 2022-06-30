@@ -38,7 +38,7 @@ const getCollegeDetails = async function (req, res){
       output.logoLink = collegeData.logoLink
       output.interns = internsList
 
-      return res.status(200).send({ status: true, data: output })
+      return res.status(201).send({ status: true, data: output })
 
   }
   catch (err) {
@@ -47,6 +47,6 @@ const getCollegeDetails = async function (req, res){
 }
 
 module.exports.createInterns = createInterns;
-module.exports.getCollegeDetails = getCollegeDetails
+module.exports.getCollegeDetails = getCollegeDetails;
 
 
