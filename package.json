@@ -1,13 +1,13 @@
 {
-  "name": "src",
+  "name": "project-2",
   "version": "1.0.0",
-  "description": "Backend cohort for Thorium(feb-May)",
+  "description": "Open to Intern Project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js"
   },
-  "author": "",
+  "author": "Sandip, Ravikiran, Sandeep",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",

@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 
 const collegeSchema = new mongoose.Schema(
   {
-    name: {type: String, required: 'Name name is required', trim: true },
+    name: {type: String, required: true, lowercase:true, unique:true, trim: true },
 
-    fullName: {type: String, required: 'Full name is required', trim: true},
+    fullName: {type: String, required: true, trim: true},
 
-    logoLink: {type: String, required: 'Logo link is required' , trim: true},
+    logoLink: {type: String, required: true, trim: true},
 
     isDeleted: {
       type: Boolean,
